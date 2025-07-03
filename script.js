@@ -12,22 +12,11 @@ function gridCreator(numberOfSquaresPerSide){
 }
 
 gridCreator(16);
-let prevGridNumberOfSquaresPerSide = 16;
-
-function deleteGrid(previousGridNumberOfSquaresPerSide){
-    for (let index = 0; index < (previousGridNumberOfSquaresPerSide * previousGridNumberOfSquaresPerSide); index++) {
-        const div = document.querySelector(`.div-${index}`);
-        if (div){
-            div.remove();
-        }
-
-    }
-}
 
 const button = document.querySelector("button");
 button.addEventListener("click", () => {
     let input = prompt("Type in a number between 1 and 100", 16);
-    deleteGrid(prevGridNumberOfSquaresPerSide);
+    container.textContent = "";
     if (input <= 100 && input > 0){
         gridCreator(input);
         prevGridNumberOfSquaresPerSide = input;
