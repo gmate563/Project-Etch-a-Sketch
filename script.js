@@ -12,7 +12,11 @@ function gridCreator(numberOfSquaresPerSide){
         div.style.height = `${squareSize}px`;
 
         div.addEventListener("mouseover", () => {
-            div.style.backgroundColor="red";
+            const red = Math.floor(Math.random() * 256);
+            const green = Math.floor(Math.random() * 256);
+            const blue = Math.floor(Math.random() * 256);
+
+            div.style.backgroundColor= `rgb(${red},${green},${blue})`;
         });
         
         container.appendChild(div);
@@ -25,7 +29,6 @@ gridCreator(16);
 const button = document.querySelector("button");
 button.addEventListener("click", () => {
     let input = prompt("Type in a number between 1 and 100", 16);
-    // container.textContent = "";
     if (input <= 100 && input > 0){
         gridCreator(input);
     }
